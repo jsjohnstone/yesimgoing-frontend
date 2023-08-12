@@ -10,6 +10,7 @@ function useForm({ additionalData }) {
     setMessage('');
 
     const finalFormEndpoint = e.target.action;
+    console.log(e.target.elements);
     const data = Array.from(e.target.elements)
       .filter((input) => input.name)
       .reduce((obj, input) => Object.assign(obj, { [input.name]: input.value }), {});

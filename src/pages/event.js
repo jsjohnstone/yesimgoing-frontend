@@ -14,16 +14,21 @@ export default function Event() {
     };
 
     return (
-        <div className="d-flex align-items-center justify-content-center text-center min-vh-100">
+        <div className="p-2 m-2 d-flex align-items-center justify-content-center text-center min-vh-100">
 
             <div id="event">
                 <div>
+                    <h2><Emoji emoji="house-with-garden"  size="50"/></h2>
                     <h1><b>{event.name}</b></h1>
-                    <h3><Emoji emoji="calendar"/> {event.date} @ {event.time}</h3>
-                    <h3><Emoji emoji="round-pushpin"/> {event.location}</h3>
+                    <h3><Emoji emoji="calendar" /> {event.date} @ {event.time}</h3>
+                    <h3><Emoji emoji="round-pushpin" /> {event.location}</h3>
                 </div>
                 <br />
-                <hr />
+                <hr style={{
+                    color: 'black',
+                    backgroundColor: 'black',
+                    height: 5
+                }} />
                 <br />
                 <Outlet />
             </div>
