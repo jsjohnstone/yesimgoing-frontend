@@ -43,6 +43,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <div className="p-2 d-flex align-items-center justify-content-center text-center min-vh-100">
+      <RouterProvider router={router} />
+    </div>
   </React.StrictMode>
 );
