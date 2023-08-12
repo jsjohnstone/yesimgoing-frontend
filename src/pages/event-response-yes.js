@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useOutletContext } from "react-router-dom"
 import doConfetti from "../helpers/confetti";
 import axios from "axios";
+import { PulseLoader } from "react-spinners";
 import Emoji from 'react-emojis';
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
@@ -22,6 +23,7 @@ export default function EventResponseYes() {
     const [formState, setFormState] = useState("form")
 
     const handleSubmit = e => {
+        setFormState("loading")
         const form = e.currentTarget;
 
         if (form.checkValidity() === false) {
@@ -77,6 +79,15 @@ export default function EventResponseYes() {
         <div>
             <h1><b><Emoji emoji="cross-mark" size="50" /> Something went wrong...</b></h1>
             Try refresh the page and try again please!
+        </div>
+    )
+
+    if(formState == "loading") return (
+        <div>
+            <br /><br />
+            <PulseLoader color="black" />
+            Just a moment...
+            <br /><br />
         </div>
     )
 
