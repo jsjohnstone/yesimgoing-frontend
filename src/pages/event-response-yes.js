@@ -23,7 +23,6 @@ export default function EventResponseYes() {
     const [formState, setFormState] = useState("form")
 
     const handleSubmit = e => {
-        setFormState("loading")
         const form = e.currentTarget;
 
         if (form.checkValidity() === false) {
@@ -33,6 +32,7 @@ export default function EventResponseYes() {
         } else {
             e.preventDefault()
             setValidated(true);
+            setFormState("loading")
             axios
                 .post(`https://api.yesimgoing.to/responses/${eventId}`, {
                     name: userName,
