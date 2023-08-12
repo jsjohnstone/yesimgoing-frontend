@@ -3,6 +3,7 @@ import Emoji from 'react-emojis';
 import PulseLoader from "react-spinners/PulseLoader";
 import useAxios from 'axios-hooks'
 import ErrorBlock from "../components/error";
+import moment from "moment";
 
 export default function Event() {
 
@@ -20,7 +21,7 @@ export default function Event() {
             <div>
                 <h2><Emoji emoji={data.icon} size="50" /></h2>
                 <h1><b>{data.name}</b></h1>
-                <h4><Emoji emoji="calendar" /> {data.date} @ {data.time}</h4>
+                <h4><Emoji emoji="calendar" /> {moment(data.date).format('ddd Do MMM YYYY')} @ {data.time}</h4>
                 <h4><Emoji emoji="round-pushpin" /> {data.location}</h4>
             </div>
             <br />
@@ -30,7 +31,7 @@ export default function Event() {
                 height: 5
             }} />
             <br />
-            <Outlet />
+            <Outlet  context={[data]} />
         </div>
     );
 }
